@@ -861,6 +861,14 @@ namespace S3
             req.SetTagging(urlEncodeMap(tags.value()));
         }
 
+        if (bucket.compare(bucket.size() - 6, 6, "--x-s3") == 0) {
+            req.SetChecksumAlgorithm(Aws::S3::Model::ChecksumAlgorithm::CRC32);
+            req.SetStorageClass(Aws::S3::Model::StorageClass::EXPRESS_ONEZONE);
+            LOG_INFO(&Poco::Logger::get("S3Util::upload"), "s3express bucket found {}", bucket);
+        }
+
+        LOG_INFO(&Poco::Logger::get("S3Util::upload"), "req.ChecksumAlgorithmHasBeenSet() = {}, req.GetChecksumAlgorithmName() = {}", req.ChecksumAlgorithmHasBeenSet(), req.GetChecksumAlgorithmName());
+
         ProfileEvents::increment(ProfileEvents::S3PutObject);
         if (for_disk_s3)
             ProfileEvents::increment(ProfileEvents::DiskS3PutObject);
