@@ -216,7 +216,7 @@
 [submodule "contrib/abseil-cpp"]
 	path = contrib/abseil-cpp
 	url = https://github.com/ClickHouse-Extras/abseil-cpp.git
-	branch = lts_2021_11_02
+	# branch = lts_2021_11_02
 [submodule "contrib/dragonbox"]
 	path = contrib/dragonbox
 	url = https://github.com/ClickHouse-Extras/dragonbox.git
@@ -256,7 +256,7 @@
 [submodule "contrib/incubator-brpc"]
 	path = contrib/incubator-brpc
 	url = https://github.com/ByConity/incubator-brpc.git
-	branch = brpc1p3
+	# branch = brpc1p3
 [submodule "contrib/gflags"]
 	path = contrib/gflags
 	url = https://github.com/gflags/gflags.git
