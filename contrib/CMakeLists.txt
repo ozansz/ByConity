@@ -306,7 +306,10 @@ if (ENABLE_MSGPACK)
     add_library(ch_contrib::msgpack ALIAS _msgpack)
 endif()
 
+# add_subdirectory(aws-crt-cpp)
+
 add_contrib (aws-cmake
+    aws-crt-cpp
     aws
     aws-c-auth
     aws-c-cal
@@ -320,7 +323,7 @@ add_contrib (aws-cmake
     aws-c-sdkutils
     aws-s2n-tls
     aws-checksums
-    aws-crt-cpp
+    #aws-crt-cpp
     aws-cmake
 )
 

@@ -334,6 +334,8 @@ file(GLOB AWS_CRT_SRC
     "${AWS_CRT_DIR}/source/io/*.cpp"
 )
 
+configure_file("${AWS_CRT_DIR}/include/aws/crt/Config.h.in" "${AWS_CRT_DIR}/include/aws/crt/Config.h" @ONLY)
+
 list(APPEND AWS_SOURCES ${AWS_CRT_SRC})
 list(APPEND AWS_PUBLIC_INCLUDES "${AWS_CRT_DIR}/include/")
 
