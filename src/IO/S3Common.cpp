@@ -295,7 +295,7 @@ namespace S3
         return std::make_shared<Aws::S3::S3Client>(
             credentials_provider,
             *client_configuration, // Client configuration.
-            Aws::Client::AWSAuthV4Signer::PayloadSigningPolicy::Never,
+            Aws::Client::AWSAuthV4Signer::PayloadSigningPolicy::Always,
             is_virtual_hosted_style || client_configuration->endpointOverride.empty() // Use virtual addressing only if endpoint is not specified.
         );
     }
@@ -863,7 +863,7 @@ namespace S3
 
         if (bucket.compare(bucket.size() - 6, 6, "--x-s3") == 0) {
             req.SetChecksumAlgorithm(Aws::S3::Model::ChecksumAlgorithm::CRC32);
-            req.SetStorageClass(Aws::S3::Model::StorageClass::EXPRESS_ONEZONE);
+//            req.SetStorageClass(Aws::S3::Model::StorageClass::EXPRESS_ONEZONE);
             LOG_INFO(&Poco::Logger::get("S3Util::upload"), "s3express bucket found {}", bucket);
         }
 
